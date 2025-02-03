@@ -7,7 +7,7 @@ if len(sys.argv) < 3:
 
 sound = parselmouth.Sound(sys.argv[1])
 
-pitch = sound.to_pitch()
+pitch = sound.to_pitch_ac(time_step=0.005, voicing_threshold=0.35, pitch_floor=45.0, pitch_ceiling=1800.0)
 pitch_listing = pitch.selected_array["frequency"]
 
 with open(sys.argv[2], "w") as file:
